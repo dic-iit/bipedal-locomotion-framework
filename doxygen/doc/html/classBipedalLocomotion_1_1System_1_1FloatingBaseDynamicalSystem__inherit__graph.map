@@ -1,0 +1,5 @@
+<map id="BipedalLocomotion::System::FloatingBaseDynamicalSystem" name="BipedalLocomotion::System::FloatingBaseDynamicalSystem">
+<area shape="rect" id="node1" title="FloatingBaseDynamicalSystem describes a floating base dynamical system." alt="" coords="825,124,1039,180"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1System_1_1DynamicalSystem.html" title=" " alt="" coords="507,73,776,231"/>
+<area shape="rect" id="node3" href="$classBipedalLocomotion_1_1System_1_1DynamicalSystem.html" title="DynamicalSystem defines a continuous time dynamical system, i.e." alt="" coords="5,117,188,187"/>
+</map>

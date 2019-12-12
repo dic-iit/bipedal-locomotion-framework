@@ -1,0 +1,19 @@
+<map id="RobotInterface/YarpImplementation/include/BipedalLocomotion/RobotInterface/YarpRobotControl.h" name="RobotInterface/YarpImplementation/include/BipedalLocomotion/RobotInterface/YarpRobotControl.h">
+<area shape="rect" id="node1" title=" " alt="" coords="269,5,499,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,385,75,411"/>
+<area shape="rect" id="node3" title=" " alt="" coords="437,206,534,233"/>
+<area shape="rect" id="node4" title=" " alt="" coords="496,117,643,143"/>
+<area shape="rect" id="node5" href="$IRobotControl_8h.html" title=" " alt="" coords="199,109,422,151"/>
+<area shape="rect" id="node6" href="$IParametersHandler_8h.html" title=" " alt="" coords="209,199,412,240"/>
+<area shape="rect" id="node7" title=" " alt="" coords="426,295,481,322"/>
+<area shape="rect" id="node8" title=" " alt="" coords="505,295,564,322"/>
+<area shape="rect" id="node9" href="$Vector_8h_source.html" title=" " alt="" coords="220,288,401,329"/>
+<area shape="rect" id="node11" href="$TemplateHelpers_8h_source.html" title=" " alt="" coords="565,377,755,419"/>
+<area shape="rect" id="node10" title=" " alt="" coords="99,385,251,411"/>
+<area shape="rect" id="node15" title=" " alt="" coords="275,385,354,411"/>
+<area shape="rect" id="node16" title=" " alt="" coords="378,385,443,411"/>
+<area shape="rect" id="node17" title=" " alt="" coords="468,385,540,411"/>
+<area shape="rect" id="node12" title=" " alt="" coords="509,467,592,493"/>
+<area shape="rect" id="node13" title=" " alt="" coords="616,467,704,493"/>
+<area shape="rect" id="node14" title=" " alt="" coords="729,467,815,493"/>
+</map>

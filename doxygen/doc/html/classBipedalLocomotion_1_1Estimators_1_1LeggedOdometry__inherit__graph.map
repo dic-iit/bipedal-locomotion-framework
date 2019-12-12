@@ -1,0 +1,6 @@
+<map id="BipedalLocomotion::Estimators::LeggedOdometry" name="BipedalLocomotion::Estimators::LeggedOdometry">
+<area shape="rect" id="node1" title="Floating base estimation algorithm using only kinematic measurements by assuming atleast one frame on..." alt="" coords="22,335,214,376"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1Estimators_1_1FloatingBaseEstimator.html" title="FloatingBaseEstimator class contains the bare&#45;bones implementation for a LeggedOdometry based or Exte..." alt="" coords="5,244,231,285"/>
+<area shape="rect" id="node3" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title=" " alt="" coords="31,124,205,195"/>
+<area shape="rect" id="node4" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title="Basic class that contains only a get() and an advance() method." alt="" coords="27,5,209,47"/>
+</map>

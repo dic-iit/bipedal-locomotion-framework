@@ -1,0 +1,23 @@
+<map id="IK/include/BipedalLocomotion/IK/JointTrackingTask.h" name="IK/include/BipedalLocomotion/IK/JointTrackingTask.h">
+<area shape="rect" id="node1" title=" " alt="" coords="159,5,354,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="55,370,125,397"/>
+<area shape="rect" id="node3" href="$LinearTask_8h.html" title=" " alt="" coords="182,95,331,136"/>
+<area shape="rect" id="node21" title=" " alt="" coords="356,95,576,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="43,191,140,218"/>
+<area shape="rect" id="node5" title=" " alt="" coords="164,191,349,218"/>
+<area shape="rect" id="node6" title=" " alt="" coords="373,191,588,218"/>
+<area shape="rect" id="node7" href="$IParametersHandler_8h.html" title=" " alt="" coords="613,184,815,225"/>
+<area shape="rect" id="node19" href="$VariablesHandler_8h.html" title=" " alt="" coords="839,184,1021,225"/>
+<area shape="rect" id="node8" title=" " alt="" coords="775,281,829,307"/>
+<area shape="rect" id="node9" title=" " alt="" coords="393,281,451,307"/>
+<area shape="rect" id="node10" href="$Vector_8h_source.html" title=" " alt="" coords="475,273,657,315"/>
+<area shape="rect" id="node12" href="$TemplateHelpers_8h_source.html" title=" " alt="" coords="689,363,880,404"/>
+<area shape="rect" id="node11" title=" " alt="" coords="223,370,375,397"/>
+<area shape="rect" id="node16" title=" " alt="" coords="400,370,479,397"/>
+<area shape="rect" id="node17" title=" " alt="" coords="503,370,568,397"/>
+<area shape="rect" id="node18" title=" " alt="" coords="593,370,665,397"/>
+<area shape="rect" id="node13" title=" " alt="" coords="634,452,717,479"/>
+<area shape="rect" id="node14" title=" " alt="" coords="741,452,829,479"/>
+<area shape="rect" id="node15" title=" " alt="" coords="853,452,940,479"/>
+<area shape="rect" id="node20" title=" " alt="" coords="875,281,985,307"/>
+</map>

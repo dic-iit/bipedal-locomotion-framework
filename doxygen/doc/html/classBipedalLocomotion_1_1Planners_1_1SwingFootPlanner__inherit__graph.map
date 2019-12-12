@@ -1,0 +1,5 @@
+<map id="BipedalLocomotion::Planners::SwingFootPlanner" name="BipedalLocomotion::Planners::SwingFootPlanner">
+<area shape="rect" id="node1" title="SwingFootPlanner implement a minimum jerk trajectory planner for the swing foot." alt="" coords="5,215,192,256"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title=" " alt="" coords="7,109,190,165"/>
+<area shape="rect" id="node3" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title="Basic class that contains only a get() and an advance() method." alt="" coords="7,5,190,47"/>
+</map>

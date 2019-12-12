@@ -1,0 +1,5 @@
+<map id="BipedalLocomotion::Contacts::ContactBase" name="BipedalLocomotion::Contacts::ContactBase">
+<area shape="rect" id="node1" title="Definition of the type of contact base class." alt="" coords="5,39,164,80"/>
+<area shape="rect" id="node2" href="$structBipedalLocomotion_1_1Contacts_1_1EstimatedContact.html" title="Definition of an Estimated Contact structure." alt="" coords="212,5,400,47"/>
+<area shape="rect" id="node3" href="$structBipedalLocomotion_1_1Contacts_1_1PlannedContact.html" title="Definition of a Planned Contact structure." alt="" coords="218,71,394,112"/>
+</map>

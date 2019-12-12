@@ -1,0 +1,6 @@
+<map id="BipedalLocomotion::Planners::SO3Planner&lt; trivialization &gt;" name="BipedalLocomotion::Planners::SO3Planner&lt; trivialization &gt;">
+<area shape="rect" id="node1" title="SO3Planner implements a minimum jerk trajectory planner for object belonging to SO(3)." alt="" coords="21,215,172,271"/>
+<area shape="rect" id="node4" href="$classBipedalLocomotion_1_1Planners_1_1SO3Planner.html" title=" " alt="" coords="17,348,176,419"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title=" " alt="" coords="21,109,172,165"/>
+<area shape="rect" id="node3" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title="Basic class that contains only a get() and an advance() method." alt="" coords="5,5,188,47"/>
+</map>

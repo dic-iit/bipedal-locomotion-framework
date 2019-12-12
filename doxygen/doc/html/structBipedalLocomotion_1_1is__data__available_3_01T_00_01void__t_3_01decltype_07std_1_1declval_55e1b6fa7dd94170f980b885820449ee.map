@@ -1,0 +1,4 @@
+<map id="BipedalLocomotion::is_data_available&lt; T, void_t&lt; decltype(std::declval&lt; T &gt;().data())&gt; &gt;" name="BipedalLocomotion::is_data_available&lt; T, void_t&lt; decltype(std::declval&lt; T &gt;().data())&gt; &gt;">
+<area shape="rect" id="node1" title="is_data_available is a utility metafunction to detect if typename T contains the data()&lt;" alt="" coords="5,80,177,151"/>
+<area shape="rect" id="node2" href="/home/gromualdi/robot-code/robotology-superbuild/src/bipedal-locomotion-framework_dox/doxygen/tags/cppreference-doxygen-web.tag.xml$cpp/types/integral_constant.html" title=" " alt="" coords="40,5,143,32"/>
+</map>

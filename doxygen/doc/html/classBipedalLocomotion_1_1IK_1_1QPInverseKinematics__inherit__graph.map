@@ -1,0 +1,6 @@
+<map id="BipedalLocomotion::IK::QPInverseKinematics" name="BipedalLocomotion::IK::QPInverseKinematics">
+<area shape="rect" id="node1" title="QPInverseKinematics is a concrete class and implements an integration base inverse kinematics." alt="" coords="14,305,185,347"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1IK_1_1IntegrationBasedIK.html" title="IntegrationBasedInverseKinematics implements the interface for the integration base inverse kinematic..." alt="" coords="22,215,177,256"/>
+<area shape="rect" id="node3" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title=" " alt="" coords="5,109,193,165"/>
+<area shape="rect" id="node4" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title="Basic class that contains only a get() and an advance() method." alt="" coords="8,5,191,47"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="RobotInterface" name="RobotInterface">
+<area shape="rect" id="node2" href="dir_2ddfa6bbaecaa13cbf0c44c7a8ab174d.html" title="include" alt="" coords="156,123,228,171"/>
+<area shape="rect" id="node6" href="dir_995a11a27ec5ce2fce465ebbab555255.html" title="ParametersHandler" alt="" coords="383,219,518,267"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000062_000046.html" title="2" alt="" coords="369,197,377,212"/>
+<area shape="rect" id="node3" href="dir_12c4a4ce89df8d2e75d20f9936947c6f.html" title="src" alt="" coords="27,27,99,75"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000065_000062.html" title="1" alt="" coords="147,98,155,112"/>
+<area shape="rect" id="node4" href="dir_3e94d037e35e99e0f94aa79b0e410f47.html" title="YarpImplementation" alt="" coords="123,27,261,75"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000066_000062.html" title="2" alt="" coords="196,97,204,112"/>
+<area shape="rect" id="node5" href="dir_ef68f1e1f5148ff8ef7fb1c955106c3c.html" title="System" alt="" coords="415,123,487,171"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000066_000071.html" title="1" alt="" coords="397,103,405,118"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000066_000046.html" title="1" alt="" coords="489,203,497,217"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000071_000046.html" title="3" alt="" coords="455,193,463,208"/>
+<area shape="rect" id="clust1" href="dir_b758cc06ecf5ffd178e3392fd03c4d77.html" alt="" coords="16,16,404,181"/>
+</map>

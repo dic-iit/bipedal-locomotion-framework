@@ -1,0 +1,4 @@
+<map id="BipedalLocomotion::has_type_member&lt; T, void_t&lt; typename T::value_type &gt; &gt;" name="BipedalLocomotion::has_type_member&lt; T, void_t&lt; typename T::value_type &gt; &gt;">
+<area shape="rect" id="node1" title="has_type_member is a utility metafunction to detect if typename T defines value_type&lt;" alt="" coords="5,80,156,151"/>
+<area shape="rect" id="node2" href="/home/gromualdi/robot-code/robotology-superbuild/src/bipedal-locomotion-framework_dox/doxygen/tags/cppreference-doxygen-web.tag.xml$cpp/types/integral_constant.html" title=" " alt="" coords="29,5,132,32"/>
+</map>

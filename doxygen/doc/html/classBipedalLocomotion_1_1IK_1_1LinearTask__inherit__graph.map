@@ -1,0 +1,7 @@
+<map id="BipedalLocomotion::IK::LinearTask" name="BipedalLocomotion::IK::LinearTask">
+<area shape="rect" id="node1" title="LinearTask describes a IK LinearTask element." alt="" coords="5,104,145,145"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1IK_1_1CoMTask.html" title="SE3Task is a concrete implementation of the Task." alt="" coords="198,5,338,47"/>
+<area shape="rect" id="node3" href="$classBipedalLocomotion_1_1IK_1_1JointTrackingTask.html" title="JointsTrackingTask is a concrete implementation of the Task." alt="" coords="193,71,343,112"/>
+<area shape="rect" id="node4" href="$classBipedalLocomotion_1_1IK_1_1SE3Task.html" title="SE3Task is a concrete implementation of the Task." alt="" coords="198,136,338,177"/>
+<area shape="rect" id="node5" href="$classBipedalLocomotion_1_1IK_1_1SO3Task.html" title="SO3Task is a concrete implementation of the IK::Task." alt="" coords="198,201,338,243"/>
+</map>

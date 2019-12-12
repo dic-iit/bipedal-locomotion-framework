@@ -1,0 +1,4 @@
+<map id="BipedalLocomotion::is_resizable&lt; T, void_t&lt; decltype(std::declval&lt; T &gt;().resize(std::declval&lt; int &gt;()))&gt; &gt;" name="BipedalLocomotion::is_resizable&lt; T, void_t&lt; decltype(std::declval&lt; T &gt;().resize(std::declval&lt; int &gt;()))&gt; &gt;">
+<area shape="rect" id="node1" title="is_resizable is used to build a type&#45;dependent expression that check if an element is resizable (i...." alt="" coords="5,80,177,165"/>
+<area shape="rect" id="node2" href="/home/gromualdi/robot-code/robotology-superbuild/src/bipedal-locomotion-framework_dox/doxygen/tags/cppreference-doxygen-web.tag.xml$cpp/types/integral_constant.html" title=" " alt="" coords="40,5,143,32"/>
+</map>

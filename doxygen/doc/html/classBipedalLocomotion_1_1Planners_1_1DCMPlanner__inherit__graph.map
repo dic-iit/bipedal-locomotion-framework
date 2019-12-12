@@ -1,0 +1,6 @@
+<map id="BipedalLocomotion::Planners::DCMPlanner" name="BipedalLocomotion::Planners::DCMPlanner">
+<area shape="rect" id="node1" title="DCMPlanner defines a trajectory generator for the variable height Divergent component of motion (DCM)..." alt="" coords="41,215,197,256"/>
+<area shape="rect" id="node4" href="$classBipedalLocomotion_1_1Planners_1_1TimeVaryingDCMPlanner.html" title="DCMPlanner defines a trajectory generator for the variable height Divergent component of motion (DCM)..." alt="" coords="5,305,233,347"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title=" " alt="" coords="43,109,195,165"/>
+<area shape="rect" id="node3" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title="Basic class that contains only a get() and an advance() method." alt="" coords="28,5,211,47"/>
+</map>

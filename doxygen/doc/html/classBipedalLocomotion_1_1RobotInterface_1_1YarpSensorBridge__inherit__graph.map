@@ -1,0 +1,6 @@
+<map id="BipedalLocomotion::RobotInterface::YarpSensorBridge" name="BipedalLocomotion::RobotInterface::YarpSensorBridge">
+<area shape="rect" id="node1" title="YarpSensorBridge Yarp implementation of the ISensorBridge interface Currently available interfaces." alt="" coords="648,35,831,91"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1RobotInterface_1_1ISensorBridge.html" title="Sensor bridge interface." alt="" coords="400,5,599,47"/>
+<area shape="rect" id="node3" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title=" " alt="" coords="409,71,590,127"/>
+<area shape="rect" id="node4" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title="Basic class that contains only a get() and an advance() method." alt="" coords="5,79,188,120"/>
+</map>

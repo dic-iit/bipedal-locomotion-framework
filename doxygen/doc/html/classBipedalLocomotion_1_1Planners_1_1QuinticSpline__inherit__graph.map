@@ -1,0 +1,5 @@
+<map id="BipedalLocomotion::Planners::QuinticSpline" name="BipedalLocomotion::Planners::QuinticSpline">
+<area shape="rect" id="node1" title="Quintic spline implement a 5&#45;th order polynomial spline in $f\mathbb{R}^n$f." alt="" coords="17,215,176,256"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title=" " alt="" coords="19,109,174,165"/>
+<area shape="rect" id="node3" href="$classBipedalLocomotion_1_1System_1_1Advanceable.html" title="Basic class that contains only a get() and an advance() method." alt="" coords="5,5,188,47"/>
+</map>

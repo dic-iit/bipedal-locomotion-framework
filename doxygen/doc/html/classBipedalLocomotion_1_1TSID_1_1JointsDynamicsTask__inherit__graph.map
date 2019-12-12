@@ -1,0 +1,4 @@
+<map id="BipedalLocomotion::TSID::JointsDynamicsTask" name="BipedalLocomotion::TSID::JointsDynamicsTask">
+<area shape="rect" id="node1" title="JointsDynamicsTask is a concrete implementation of the Task." alt="" coords="5,95,188,136"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1TSID_1_1Task.html" title="Task describes a control problem element." alt="" coords="27,5,167,47"/>
+</map>

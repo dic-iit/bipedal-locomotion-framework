@@ -1,0 +1,7 @@
+<map id="BipedalLocomotion::TSID::Task" name="BipedalLocomotion::TSID::Task">
+<area shape="rect" id="node1" title="Task describes a control problem element." alt="" coords="5,104,145,145"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1TSID_1_1BaseDynamicsTask.html" title="BaseDynamicsTask is a concrete implementation of the Task." alt="" coords="195,5,374,47"/>
+<area shape="rect" id="node3" href="$classBipedalLocomotion_1_1TSID_1_1JointsDynamicsTask.html" title="JointsDynamicsTask is a concrete implementation of the Task." alt="" coords="193,71,376,112"/>
+<area shape="rect" id="node4" href="$classBipedalLocomotion_1_1TSID_1_1JointsTrackingTask.html" title="JointsTrackingTask is a concrete implementation of the Task." alt="" coords="197,136,372,177"/>
+<area shape="rect" id="node5" href="$classBipedalLocomotion_1_1TSID_1_1SE3Task.html" title="SE3Task is a concrete implementation of the OptimalControlElement." alt="" coords="215,201,355,243"/>
+</map>

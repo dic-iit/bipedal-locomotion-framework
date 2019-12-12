@@ -1,0 +1,4 @@
+<map id="BipedalLocomotion::TSID::SE3Task" name="BipedalLocomotion::TSID::SE3Task">
+<area shape="rect" id="node1" title="SE3Task is a concrete implementation of the OptimalControlElement." alt="" coords="5,95,145,136"/>
+<area shape="rect" id="node2" href="$classBipedalLocomotion_1_1TSID_1_1Task.html" title="Task describes a control problem element." alt="" coords="5,5,145,47"/>
+</map>
