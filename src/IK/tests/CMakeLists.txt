@@ -8,6 +8,11 @@ add_bipedal_test(
   LINKS BipedalLocomotion::IK BipedalLocomotion::ManifConversions)
 
 add_bipedal_test(
+  NAME SO3TaskIK
+  SOURCES SO3TaskTest.cpp
+  LINKS BipedalLocomotion::IK BipedalLocomotion::ManifConversions)
+
+add_bipedal_test(
   NAME JointsTrackingTaskIK
   SOURCES JointsTrackingTaskTest.cpp
   LINKS BipedalLocomotion::IK)
