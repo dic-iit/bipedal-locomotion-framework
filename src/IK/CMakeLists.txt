@@ -15,6 +15,7 @@ if(FRAMEWORK_COMPILE_IK)
                            LieGroupControllers::LieGroupControllers
                            MANIF::manif
                            iDynTree::idyntree-high-level iDynTree::idyntree-model
-   PRIVATE_LINK_LIBRARIES  BipedalLocomotion::TextLogging OsqpEigen::OsqpEigen BipedalLocomotion::ManifConversions)
+    PRIVATE_LINK_LIBRARIES BipedalLocomotion::TextLogging OsqpEigen::OsqpEigen BipedalLocomotion::ManifConversions
+    SUBDIRECTORIES         tests)
 
 endif()
