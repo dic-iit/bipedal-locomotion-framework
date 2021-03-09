@@ -16,3 +16,8 @@ add_bipedal_test(
   NAME JointsTrackingTaskIK
   SOURCES JointsTrackingTaskTest.cpp
   LINKS BipedalLocomotion::IK)
+
+add_bipedal_test(
+  NAME CoMTaskIK
+  SOURCES CoMTaskTest.cpp
+  LINKS BipedalLocomotion::IK)
