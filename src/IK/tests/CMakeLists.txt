@@ -21,3 +21,8 @@ add_bipedal_test(
   NAME CoMTaskIK
   SOURCES CoMTaskTest.cpp
   LINKS BipedalLocomotion::IK)
+
+add_bipedal_test(
+  NAME QPInverseKinematics
+  SOURCES QPInverseKinematicsTest.cpp
+  LINKS BipedalLocomotion::IK BipedalLocomotion::ManifConversions)
