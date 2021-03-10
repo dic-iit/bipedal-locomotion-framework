@@ -35,8 +35,25 @@ struct IntegrationBasedIKState
 };
 
 /**
- * IntegrationBaseInverseKinematics implements the interface for the integration base inverse kinematics. Please inherits this class
- * if you want to implement your custom Integration base Inverse Kinematics.
+ * IntegrationBasedInverseKinematics implements the interface for the integration base inverse
+ * kinematics. Please inherits this class if you want to implement your custom Integration base
+ * Inverse Kinematics. The IntegrationBasedInverseKinematics can actually be used as Velocity
+ * controller or real IK. Indeed it is important to notice that IntegrationBasedIKState is a struct
+ * containing the joints velocity. When a robot velocity controller is available, one can set these
+ * joint velocities to the low-level robot controller. In this case, the \f$t ^ d\f$ quantities in
+ * the following figures  can be evaluated by using robot sensor feedback, and the robot is said to
+ * be velocity controlled. On the other hand, if the robot velocity control is not available, one
+ * may integrate the outcome of IntegrationBasedIK to obtain the desired joint position to be set to
+ * a low-level robot position controller. In this case, the \f$t ^d\f$ quantities can be evaluated
+ * by using the desired integrated quantities instead of sensor feedback, and the block behaves as
+ * an inverse kinematics module, and the robot is said to be position controlled. Here you can find
+ * an example of the IntegrationBasedInverseKinematics interface used as a velocity controller
+ * ![VC](https://user-images.githubusercontent.com/16744101/110701009-ec359200-81f0-11eb-9552-d47632f5b268.png)
+ * Here you can find an example of the IntegrationBasedInverseKinematics used as inverse kinematics.
+ * In this case, the System::FloatingBaseSystemDynamics and System::Integrator classes can be used
+ * to integrate the output of the IK taking into account the geometrical structure of the
+ * configuration space (\f$ R^3 \times SO(3) \times R^n\f$)
+ * ![IK](https://user-images.githubusercontent.com/16744101/110700993-e50e8400-81f0-11eb-88a1-30d5a024da9a.png)
  */
 class IntegrationBasedIK : public BipedalLocomotion::System::Advanceable<IntegrationBasedIKState>
 {
