@@ -56,6 +56,15 @@ protected:
 
 public:
     /**
+     * Type of the task. Namely an equality or an inequality task.
+     */
+    enum class Type
+    {
+        equality,
+        inequality
+    };
+
+    /**
      * Set the kinDynComputations object.
      * @param kinDyn pointer to a kinDynComputations object.
      * @return True in case of success, false otherwise.
@@ -109,6 +118,12 @@ public:
      * @return the size of the task.
      */
     virtual std::size_t size() const = 0;
+
+    /**
+     * Get the type of the task. Namely equality or inequality.
+     * @return the size of the task.
+     */
+    virtual Type type() const = 0;
 };
 
 } // namespace IK
