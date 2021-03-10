@@ -1,5 +1,5 @@
 /**
- * @file JointsTrackingTask.h
+ * @file JointTrackingTask.h
  * @authors Giulio Romualdi
  * @copyright 2021 Istituto Italiano di Tecnologia (IIT). This software may be modified and
  * distributed under the terms of the GNU Lesser General Public License v2.1 or any later version.
@@ -30,7 +30,7 @@ namespace IK
  * The desired joint velocity is chosen such that the joint will converge to the desired
  * trajectory and it is computed with a standard standard PD controller in \f$\mathbb{R}^n\f$.
  */
-class JointsTrackingTask : public Task
+class JointTrackingTask : public Task
 {
     Eigen::VectorXd m_kp; /**< Proportional gain. */
     Eigen::VectorXd m_jointPosition; /**< Joints position in radians */

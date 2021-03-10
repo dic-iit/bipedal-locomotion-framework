@@ -1,11 +1,11 @@
 /**
- * @file JointsTrackingTask.cpp
+ * @file JointTrackingTask.cpp
  * @authors Giulio Romualdi
  * @copyright 2021 Istituto Italiano di Tecnologia (IIT). This software may be modified and
  * distributed under the terms of the GNU Lesser General Public License v2.1 or any later version.
  */
 
-#include <BipedalLocomotion/IK/JointsTrackingTask.h>
+#include <BipedalLocomotion/IK/JointTrackingTask.h>
 
 #include <BipedalLocomotion/TextLogging/Logger.h>
 
@@ -14,9 +14,9 @@
 using namespace BipedalLocomotion::ParametersHandler;
 using namespace BipedalLocomotion::IK;
 
-bool JointsTrackingTask::setVariableHandler(const System::VariablesHandler& variablesHandler)
+bool JointTrackingTask::setVariableHandler(const System::VariablesHandler& variablesHandler)
 {
-    constexpr auto errorPrefix = "[JointsTrackingTask::setVariableHandler]";
+    constexpr auto errorPrefix = "[JointTrackingTask::setVariableHandler]";
 
     System::VariablesHandler::VariableDescription robotVelocityVariable;
 
@@ -59,10 +59,10 @@ bool JointsTrackingTask::setVariableHandler(const System::VariablesHandler& vari
     return true;
 }
 
-bool JointsTrackingTask::initialize(
+bool JointTrackingTask::initialize(
     std::weak_ptr<ParametersHandler::IParametersHandler> paramHandler)
 {
-    constexpr auto errorPrefix = "[JointsTrackingTask::initialize] ";
+    constexpr auto errorPrefix = "[JointTrackingTask::initialize] ";
 
     if (m_kinDyn == nullptr || !m_kinDyn->isValid())
     {
@@ -104,9 +104,9 @@ bool JointsTrackingTask::initialize(
     return true;
 }
 
-bool JointsTrackingTask::update()
+bool JointTrackingTask::update()
 {
-    constexpr auto errorPrefix = "[JointsTrackingTask::update]";
+    constexpr auto errorPrefix = "[JointTrackingTask::update]";
 
     if (!m_kinDyn->getJointPos(m_jointPosition))
     {
@@ -119,15 +119,15 @@ bool JointsTrackingTask::update()
     return true;
 }
 
-bool JointsTrackingTask::setSetPoint(Eigen::Ref<const Eigen::VectorXd> jointPosition)
+bool JointTrackingTask::setSetPoint(Eigen::Ref<const Eigen::VectorXd> jointPosition)
 {
     return this->setSetPoint(jointPosition, m_zero);
 }
 
-bool JointsTrackingTask::setSetPoint(Eigen::Ref<const Eigen::VectorXd> jointPosition,
-                                     Eigen::Ref<const Eigen::VectorXd> jointVelocity)
+bool JointTrackingTask::setSetPoint(Eigen::Ref<const Eigen::VectorXd> jointPosition,
+                                    Eigen::Ref<const Eigen::VectorXd> jointVelocity)
 {
-    constexpr auto errorPrefix = "[JointsTrackingTask::setSetPoint]";
+    constexpr auto errorPrefix = "[JointTrackingTask::setSetPoint]";
 
     if (jointPosition.size() != m_kinDyn->getNrOfDegreesOfFreedom()
         || jointVelocity.size() != m_kinDyn->getNrOfDegreesOfFreedom())
@@ -147,9 +147,9 @@ bool JointsTrackingTask::setSetPoint(Eigen::Ref<const Eigen::VectorXd> jointPosi
     return true;
 }
 
-std::size_t JointsTrackingTask::size() const
+std::size_t JointTrackingTask::size() const
 {
-    constexpr auto errorMessage = "[JointsTrackingTask::size] Please call setKinDyn method before. "
+    constexpr auto errorMessage = "[JointTrackingTask::size] Please call setKinDyn method before. "
                                   "A size equal to zero will be returned.";
 
     assert((m_kinDyn != nullptr) && errorMessage);
@@ -162,7 +162,7 @@ std::size_t JointsTrackingTask::size() const
     return m_kinDyn->getNrOfDegreesOfFreedom();
 }
 
-JointsTrackingTask::Type JointsTrackingTask::type() const
+JointTrackingTask::Type JointTrackingTask::type() const
 {
     return Type::equality;
 }
