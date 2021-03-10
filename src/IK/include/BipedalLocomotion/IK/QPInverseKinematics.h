@@ -85,10 +85,12 @@ public:
      * Initialize the planner.
      * @param paramHandler pointer to the parameters handler.
      * @note the following parameters are required by the class
-     * |           Parameter Name           |   Type   |                                       Description                                      | Mandatory |
-     * |:----------------------------------:|:--------:|:--------------------------------------------------------------------------------------:|:---------:|
-     * |    `robot_velocity_variable_name`  | `string` |   Name of the variable contained in `VariablesHandler` describing the robot velocity   |    Yes    |
-     * |             `verbosity`            |  `bool`  |                   Verbosity of the solver. Default value `false`                       |    No     |
+     * |         Parameter Name         |   Type   |                                           Description                                          | Mandatory |
+     * |:------------------------------:|:--------:|:----------------------------------------------------------------------------------------------:|:---------:|
+     * | `robot_velocity_variable_name` | `string` | Name of the variable contained in `VariablesHandler` describing the generalized robot velocity |    Yes    |
+     * |           `verbosity`          |  `bool`  |                         Verbosity of the solver. Default value `false`                         |     No    |
+     * Where the generalized robot velocity is a vector containing the base spatialvelocity
+     (expressed in mixed representation) and the joints velocity.
      * @return True in case of success, false otherwise.
      */
     bool initialize(std::weak_ptr<ParametersHandler::IParametersHandler> handler) override;
@@ -100,17 +102,19 @@ public:
     std::vector<std::string> getTaskNames() const override;
 
     /**
-     * Return if the content of get is valid.
+     * Return true if the content of get is valid.
      */
     bool isValid() const override;
 
     /**
      * Solve the inverse kinematics.
+     * @return true in case of success and false otherwise.
      */
     bool advance() override;
 
     /**
      * Get the outcome of the optimization problem
+     * @return the state of the inverse kinematics.
      */
     const IKState& get() const override;
 
