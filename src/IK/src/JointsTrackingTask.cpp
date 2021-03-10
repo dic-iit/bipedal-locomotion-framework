@@ -161,3 +161,8 @@ std::size_t JointsTrackingTask::size() const
     }
     return m_kinDyn->getNrOfDegreesOfFreedom();
 }
+
+JointsTrackingTask::Type JointsTrackingTask::type() const
+{
+    return Type::equality;
+}
