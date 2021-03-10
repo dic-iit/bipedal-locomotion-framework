@@ -15,7 +15,7 @@
 
 #include <Eigen/Dense>
 
-#include <BipedalLocomotion/IK/InverseKinematics.h>
+#include <BipedalLocomotion/IK/IntegrationBasedIK.h>
 #include <BipedalLocomotion/IK/LinearTask.h>
 #include <BipedalLocomotion/ParametersHandler/IParametersHandler.h>
 #include <BipedalLocomotion/System/Advanceable.h>
@@ -38,7 +38,7 @@ namespace IK
  * Architectures for Position and Velocity Controlled Walking of Humanoid Robots"
  * https://doi.org/10.1109/HUMANOIDS.2018.8625025
  */
-class QPInverseKinematics : public InverseKinematics
+class QPInverseKinematics : public IntegrationBasedIK
 {
     /**
      * Private implementation
@@ -118,7 +118,7 @@ public:
      * Get the outcome of the optimization problem
      * @return the state of the inverse kinematics.
      */
-    const IKState& get() const override;
+    const IntegrationBasedIKState& get() const override;
 
     /**
      * Get a specific task

@@ -25,7 +25,7 @@ struct QPInverseKinematics::Impl
                                 in advance method */
     };
 
-    IKState solution;
+    IntegrationBasedIKState solution;
 
     System::VariablesHandler::VariableDescription robotVelocityVariable;
 
@@ -362,7 +362,7 @@ bool QPInverseKinematics::isValid() const
     return m_pimpl->isValid;
 }
 
-const IKState& QPInverseKinematics::get() const
+const IntegrationBasedIKState& QPInverseKinematics::get() const
 {
     return m_pimpl->solution;
 }
