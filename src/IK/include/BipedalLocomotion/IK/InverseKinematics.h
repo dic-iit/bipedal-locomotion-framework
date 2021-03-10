@@ -67,7 +67,7 @@ public:
      * Get a vector containing the name of the tasks.
      * @return an std::vector containing all the names associated to the tasks
      */
-    virtual std::vector<std::string> getTasksName() const = 0;
+    virtual std::vector<std::string> getTaskNames() const = 0;
 
     /**
      * Finalize the IK.
