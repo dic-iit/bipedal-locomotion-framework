@@ -43,8 +43,8 @@ class InverseKinematics : public BipedalLocomotion::System::Advanceable<IKState>
 
 public:
     /**
-     * Initialize the planner.
-     * @param handler pointer to the parameter handler.
+     * Initialize the inverse kinematics algorithm.
+     * @param handler pointer to the IParametersHandler interface.
      * @return true in case of success/false otherwise.
      */
     virtual bool initialize(std::weak_ptr<ParametersHandler::IParametersHandler> handler);
