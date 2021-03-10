@@ -18,7 +18,7 @@ struct QPInverseKinematics::Impl
 {
     struct TaskWithPriority
     {
-        std::shared_ptr<Task> task;
+        std::shared_ptr<LinearTask> task;
         std::size_t priority;
         Eigen::VectorXd weight;
         Eigen::MatrixXd tmp; /**< This is a temporary matrix usefull to reduce dynamics allocation
@@ -128,7 +128,7 @@ QPInverseKinematics::QPInverseKinematics()
 
 QPInverseKinematics::~QPInverseKinematics() = default;
 
-bool QPInverseKinematics::addTask(std::shared_ptr<Task> task,
+bool QPInverseKinematics::addTask(std::shared_ptr<LinearTask> task,
                                   const std::string& taskName,
                                   std::size_t priority,
                                   std::optional<Eigen::Ref<const Eigen::VectorXd>> weight)
@@ -155,7 +155,7 @@ bool QPInverseKinematics::addTask(std::shared_ptr<Task> task,
         return false;
     }
 
-    if (priority == 1 && task->type() == Task::Type::inequality)
+    if (priority == 1 && task->type() == LinearTask::Type::inequality)
     {
         log()->error("{} This implementation of the inverse kinematics cannot handle inequality "
                      "tasks with priority equal to 1.",
@@ -302,7 +302,7 @@ bool QPInverseKinematics::advance()
         m_pimpl->constraintMatrix.middleRows(index, constraint.get().task->size()) = A;
         m_pimpl->upperBound.segment(index, constraint.get().task->size()) = b;
 
-        if (constraint.get().task->type() == Task::Type::inequality)
+        if (constraint.get().task->type() == LinearTask::Type::inequality)
         {
             m_pimpl->lowerBound.segment(index, constraint.get().task->size())
                 .setConstant(-OsqpEigen::INFTY);
@@ -367,7 +367,7 @@ const IKState& QPInverseKinematics::get() const
     return m_pimpl->solution;
 }
 
-std::weak_ptr<Task> QPInverseKinematics::getTask(const std::string& name) const
+std::weak_ptr<LinearTask> QPInverseKinematics::getTask(const std::string& name) const
 {
     constexpr auto logPrefix = "[QPInverseKinematics::getTask]";
     auto task = m_pimpl->tasks.find(name);
@@ -377,7 +377,7 @@ std::weak_ptr<Task> QPInverseKinematics::getTask(const std::string& name) const
         log()->warn("{} The task named {} does not exist. A nullptr will be returned.",
                     logPrefix,
                     name);
-        return std::shared_ptr<Task>(nullptr);
+        return std::shared_ptr<LinearTask>(nullptr);
     }
 
     return task->second.task;
