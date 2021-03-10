@@ -16,7 +16,7 @@ env:
   iDynTree_TAG: v3.0.0
   Catch2_TAG: v2.13.4
   Qhull_TAG: 2020.2
-  CasADi_TAG: 3.5.5.1
+  CasADi_TAG: 3.5.5.2
   manif_TAG: 0.0.3
   matioCpp_TAG: v0.1.0
   LieGroupControllers_TAG: v0.0.1
@@ -196,7 +196,7 @@ jobs:
         # the other dependencies. Please check:
         # https://github.com/casadi/casadi/blob/6f122ca22e2a869903628c5738f154c8ac0f7455/CMakeLists.txt#L317
         cd ${GITHUB_WORKSPACE}
-        git clone https://github.com/GiulioRomualdi/casadi.git -b ${CasADi_TAG} casadi
+        git clone https://github.com/dic-iit/casadi.git -b ${CasADi_TAG} casadi
         cd casadi
         mkdir build
         cd build
@@ -308,7 +308,7 @@ jobs:
 
         # CasADi
         cd ${GITHUB_WORKSPACE}
-        git clone https://github.com/GiulioRomualdi/casadi.git -b ${CasADi_TAG} casadi
+        git clone https://github.com/dic-iit/casadi.git -b ${CasADi_TAG} casadi
         cd casadi
         mkdir build
         cd build
