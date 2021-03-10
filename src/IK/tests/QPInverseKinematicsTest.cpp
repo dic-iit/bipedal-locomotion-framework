@@ -16,7 +16,7 @@
 #include <BipedalLocomotion/IK/SE3Task.h>
 #include <BipedalLocomotion/IK/CoMTask.h>
 #include <BipedalLocomotion/IK/JointTrackingTask.h>
-#include <BipedalLocomotion/IK/InverseKinematics.h>
+#include <BipedalLocomotion/IK/IntegrationBasedIK.h>
 #include <BipedalLocomotion/IK/QPInverseKinematics.h>
 
 #include <iDynTree/Core/EigenHelpers.h>
@@ -31,7 +31,7 @@ constexpr auto robotVelocity = "robotVelocity";
 
 struct InverseKinematicsAndTasks
 {
-    std::shared_ptr<InverseKinematics> ik;
+    std::shared_ptr<IntegrationBasedIK> ik;
     std::shared_ptr<SE3Task> se3Task;
     std::shared_ptr<CoMTask> comTask;
     std::shared_ptr<JointTrackingTask> regularizationTask;
