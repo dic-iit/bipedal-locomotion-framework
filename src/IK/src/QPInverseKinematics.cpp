@@ -232,7 +232,7 @@ bool QPInverseKinematics::finalize(const System::VariablesHandler& handler)
     return true;
 }
 
-std::vector<std::string> QPInverseKinematics::getTasksName() const
+std::vector<std::string> QPInverseKinematics::getTaskNames() const
 {
     std::vector<std::string> tasksName;
 

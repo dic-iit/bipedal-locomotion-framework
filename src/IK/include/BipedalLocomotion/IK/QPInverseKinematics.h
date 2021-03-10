@@ -99,7 +99,7 @@ public:
      * Get a vector containing the name of the tasks.
      * @return an std::vector containing all the names associated to the tasks
      */
-    std::vector<std::string> getTasksName() const override;
+    std::vector<std::string> getTaskNames() const override;
 
     /**
      * Return if the content of get is valid.
