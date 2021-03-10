@@ -10,7 +10,7 @@
 
 #include <memory>
 
-#include <BipedalLocomotion/IK/Task.h>
+#include <BipedalLocomotion/IK/LinearTask.h>
 
 #include <LieGroupControllers/ProportionalDerivativeController.h>
 
@@ -30,7 +30,7 @@ namespace IK
  * The desired joint velocity is chosen such that the joint will converge to the desired
  * trajectory and it is computed with a standard standard PD controller in \f$\mathbb{R}^n\f$.
  */
-class JointTrackingTask : public Task
+class JointTrackingTask : public LinearTask
 {
     Eigen::VectorXd m_kp; /**< Proportional gain. */
     Eigen::VectorXd m_jointPosition; /**< Joints position in radians */
