@@ -149,10 +149,14 @@ bool JointsTrackingTask::setSetPoint(Eigen::Ref<const Eigen::VectorXd> jointPosi
 
 std::size_t JointsTrackingTask::size() const
 {
+    constexpr auto errorMessage = "[JointsTrackingTask::size] Please call setKinDyn method before. "
+                                  "A size equal to zero will be returned.";
+
+    assert((m_kinDyn != nullptr) && errorMessage);
+
     if (m_kinDyn == nullptr)
     {
-        log()->warn("[JointsTrackingTask::size] Please call setKinDyn method before. A size equal "
-                    "to zero will be returned.");
+        log()->warn(errorMessage);
         return 0;
     }
     return m_kinDyn->getNrOfDegreesOfFreedom();
