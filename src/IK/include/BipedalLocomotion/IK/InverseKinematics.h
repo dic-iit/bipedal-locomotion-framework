@@ -54,14 +54,12 @@ public:
      * @param task pointer to a given task
      * @param priority is the priority of the task. The lower the number the higher the priority.
      * @param weight weight associated to the task.
-     * @param isInequality true if the task should be treated as inequality constraint
      * @return true if the task has been added to the inverse kinematics.
      */
     virtual bool addTask(std::shared_ptr<Task> task,
                          const std::string& taskName,
                          std::size_t priority,
-                         std::optional<Eigen::Ref<const Eigen::VectorXd>> weight = {},
-                         bool isInequality = false) = 0;
+                         std::optional<Eigen::Ref<const Eigen::VectorXd>> weight = {}) = 0;
 
     /**
      * Get a vector containing the name of the tasks.
