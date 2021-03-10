@@ -26,8 +26,7 @@ bool CoMTask::setVariableHandler(const System::VariablesHandler& variablesHandle
     }
 
     // get the variable
-    if (!variablesHandler.getVariable(m_robotVelocityVariable.name,
-                                      m_robotVelocityVariable))
+    if (!variablesHandler.getVariable(m_robotVelocityVariable.name, m_robotVelocityVariable))
     {
         log()->error("[CoMTask::setVariableHandler] Unable to get the variable named {}.",
                      m_robotVelocityVariable.name);
@@ -61,9 +60,7 @@ bool CoMTask::initialize(std::weak_ptr<ParametersHandler::IParametersHandler> pa
 
     if (m_kinDyn == nullptr || !m_kinDyn->isValid())
     {
-        log()->error("{} [{}] KinDynComputations object is not valid.",
-                     errorPrefix,
-                     m_description);
+        log()->error("{} [{}] KinDynComputations object is not valid.", errorPrefix, m_description);
 
         return false;
     }
@@ -82,9 +79,7 @@ bool CoMTask::initialize(std::weak_ptr<ParametersHandler::IParametersHandler> pa
     auto ptr = paramHandler.lock();
     if (ptr == nullptr)
     {
-        log()->error("{} [{}] The parameter handler is not valid.",
-                     errorPrefix,
-                     m_description);
+        log()->error("{} [{}] The parameter handler is not valid.", errorPrefix, m_description);
         return false;
     }
 
@@ -101,12 +96,9 @@ bool CoMTask::initialize(std::weak_ptr<ParametersHandler::IParametersHandler> pa
     double kpLinear;
     if (!ptr->getParameter("kp_linear", kpLinear))
     {
-        log()->error("{} [{}] to get the proportional linear gain.",
-                     errorPrefix,
-                     m_description);
+        log()->error("{} [{}] to get the proportional linear gain.", errorPrefix, m_description);
         return false;
     }
-
 
     m_R3Controller.setGains(kpLinear);
 
@@ -138,7 +130,8 @@ bool CoMTask::update()
     return true;
 }
 
-bool CoMTask::setSetPoint(Eigen::Ref<const Eigen::Vector3d> position, Eigen::Ref<const Eigen::Vector3d> velocity)
+bool CoMTask::setSetPoint(Eigen::Ref<const Eigen::Vector3d> position,
+                          Eigen::Ref<const Eigen::Vector3d> velocity)
 {
     bool ok = true;
     ok = ok && m_R3Controller.setDesiredState(position);
