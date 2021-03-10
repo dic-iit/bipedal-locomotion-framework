@@ -151,3 +151,8 @@ std::size_t CoMTask::size() const
 {
     return m_linearVelocitySize;
 }
+
+CoMTask::Type CoMTask::type() const
+{
+    return Type::equality;
+}
