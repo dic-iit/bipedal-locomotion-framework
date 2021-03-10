@@ -148,8 +148,6 @@ bool SO3Task::update()
 
     m_b = m_SO3Controller.getControl().coeffs();
 
-    // Workaround because matrix view is not compatible with Eigen::Ref
-    // https://github.com/robotology/idyntree/issues/797
     if (!m_kinDyn->getFrameFreeFloatingJacobian(m_frameIndex,
                                                 m_jacobian))
     {
