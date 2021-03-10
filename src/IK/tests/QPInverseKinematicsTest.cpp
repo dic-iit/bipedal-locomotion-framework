@@ -174,7 +174,8 @@ TEST_CASE("QP-IK")
 
             REQUIRE(ikAndTasks.se3Task->setSetPoint(desiredPose, desiredVelocity));
             REQUIRE(ikAndTasks.comTask->setSetPoint(desiredCoMPosition, desiredCoMVelocity));
-            REQUIRE(ikAndTasks.regularizationTask->setSetpoint(iDynTree::toEigen(jointsPos), iDynTree::toEigen(jointsVel)));
+            REQUIRE(ikAndTasks.regularizationTask->setSetPoint(iDynTree::toEigen(jointsPos),
+                                                               iDynTree::toEigen(jointsVel)));
 
             REQUIRE(ikAndTasks.ik->advance());
 
