@@ -176,3 +176,8 @@ std::size_t SO3Task::size() const
 {
     return m_angularVelocitySize;
 }
+
+SO3Task::Type SO3Task::type() const
+{
+    return Type::equality;
+}
