@@ -31,8 +31,7 @@ struct QPInverseKinematics::Impl
 
     std::unordered_map<std::string, TaskWithPriority> tasks;
 
-    std::vector<std::reference_wrapper<const TaskWithPriority>> equalityConstraints;
-    std::vector<std::reference_wrapper<const TaskWithPriority>> inequalityConstraints;
+    std::vector<std::reference_wrapper<const TaskWithPriority>> constraints;
     std::vector<std::reference_wrapper<const TaskWithPriority>> costs;
 
     Eigen::MatrixXd hessian;
@@ -130,8 +129,7 @@ QPInverseKinematics::~QPInverseKinematics() = default;
 bool QPInverseKinematics::addTask(std::shared_ptr<Task> task,
                                   const std::string& taskName,
                                   std::size_t priority,
-                                  std::optional<Eigen::Ref<const Eigen::VectorXd>> weight,
-                                  bool isInequality)
+                                  std::optional<Eigen::Ref<const Eigen::VectorXd>> weight)
 {
     constexpr auto logPrefix = "[QPInverseKinematics::addTask]";
 
@@ -175,10 +173,7 @@ bool QPInverseKinematics::addTask(std::shared_ptr<Task> task,
 
     if (priority == 0)
     {
-        if (isInequality)
-            m_pimpl->inequalityConstraints.push_back(m_pimpl->tasks[taskName]);
-        else
-            m_pimpl->equalityConstraints.push_back(m_pimpl->tasks[taskName]);
+        m_pimpl->constraints.push_back(m_pimpl->tasks[taskName]);
     } else
     {
         m_pimpl->costs.push_back(m_pimpl->tasks[taskName]);
@@ -191,7 +186,7 @@ bool QPInverseKinematics::finalize(const System::VariablesHandler& handler)
 {
     constexpr auto logPrefix = "[QPInverseKinematics::finalize]";
 
-    //
+    // set the variable handler for all the tasks
     std::size_t numberOfConstraints = 0;
     for (auto& [name, task] : m_pimpl->tasks)
     {
@@ -205,6 +200,7 @@ bool QPInverseKinematics::finalize(const System::VariablesHandler& handler)
             return false;
         }
 
+        // if priority is equal to 0 the task is considered as hard constraint.
         if (task.priority == 0)
         {
             numberOfConstraints += task.task->size();
@@ -277,27 +273,22 @@ bool QPInverseKinematics::advance()
 
     // compute the constraints
     std::size_t index = 0;
-    for (const auto& constraint : m_pimpl->equalityConstraints)
+    for (const auto& constraint : m_pimpl->constraints)
     {
         Eigen::Ref<const Eigen::MatrixXd> A = constraint.get().task->getA();
         Eigen::Ref<const Eigen::VectorXd> b = constraint.get().task->getB();
 
-        m_pimpl->lowerBound.segment(index, constraint.get().task->size()) = b;
-        m_pimpl->upperBound.segment(index, constraint.get().task->size()) = b;
         m_pimpl->constraintMatrix.middleRows(index, constraint.get().task->size()) = A;
-
-        index += constraint.get().task->size();
-    }
-
-    for (const auto& constraint : m_pimpl->inequalityConstraints)
-    {
-        Eigen::Ref<const Eigen::MatrixXd> A = constraint.get().task->getA();
-        Eigen::Ref<const Eigen::VectorXd> b = constraint.get().task->getB();
-
         m_pimpl->upperBound.segment(index, constraint.get().task->size()) = b;
-        m_pimpl->lowerBound.segment(index, constraint.get().task->size())
-            .setConstant(-OsqpEigen::INFTY);
-        m_pimpl->constraintMatrix.middleRows(index, constraint.get().task->size()) = A;
+
+        if (constraint.get().task->type() == Task::Type::inequality)
+        {
+            m_pimpl->lowerBound.segment(index, constraint.get().task->size())
+                .setConstant(-OsqpEigen::INFTY);
+        } else
+        {
+            m_pimpl->lowerBound.segment(index, constraint.get().task->size()) = b;
+        }
 
         index += constraint.get().task->size();
     }
