@@ -15,7 +15,7 @@
 
 #include <BipedalLocomotion/IK/SE3Task.h>
 #include <BipedalLocomotion/IK/CoMTask.h>
-#include <BipedalLocomotion/IK/JointsTrackingTask.h>
+#include <BipedalLocomotion/IK/JointTrackingTask.h>
 #include <BipedalLocomotion/IK/InverseKinematics.h>
 #include <BipedalLocomotion/IK/QPInverseKinematics.h>
 
@@ -34,7 +34,7 @@ struct InverseKinematicsAndTasks
     std::shared_ptr<InverseKinematics> ik;
     std::shared_ptr<SE3Task> se3Task;
     std::shared_ptr<CoMTask> comTask;
-    std::shared_ptr<JointsTrackingTask> regularizationTask;
+    std::shared_ptr<JointTrackingTask> regularizationTask;
 };
 
 std::shared_ptr<IParametersHandler> createParameterHandler()
@@ -92,7 +92,7 @@ InverseKinematicsAndTasks createIK(std::shared_ptr<IParametersHandler> handler,
     REQUIRE(out.comTask->initialize(handler->getGroup("COM_TASK")));
     REQUIRE(out.ik->addTask(out.comTask, "com_task", priority));
 
-    out.regularizationTask = std::make_shared<JointsTrackingTask>();
+    out.regularizationTask = std::make_shared<JointTrackingTask>();
 
     Eigen::VectorXd weight;
     REQUIRE(handler->getGroup("REGULARIZATION_TASK").lock()->getParameter("weight", weight));
