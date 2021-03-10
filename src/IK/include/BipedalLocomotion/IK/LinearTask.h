@@ -1,12 +1,12 @@
 /**
- * @file Task.h
+ * @file LinearTask.h
  * @authors Giulio Romualdi
  * @copyright 2021 Istituto Italiano di Tecnologia (IIT). This software may be modified and
  * distributed under the terms of the GNU Lesser General Public License v2.1 or any later version.
  */
 
-#ifndef BIPEDAL_LOCOMOTION_IK_TASK_H
-#define BIPEDAL_LOCOMOTION_IK_TASK_H
+#ifndef BIPEDAL_LOCOMOTION_IK_LINEAR_TASK_H
+#define BIPEDAL_LOCOMOTION_IK_LINEAR_TASK_H
 
 #include <memory>
 
@@ -24,13 +24,13 @@ namespace IK
 {
 
 /**
- * Task describes a IK task element. The task is described by a matrix
+ * LinearTask describes a IK LinearTask element. The LinearTask is described by a matrix
  * \f$A\f$ and a vector \f$b\f$. This class describes both a linear equality constraint and a linear
  * inequality constraint. In case of equality constraint \f$ A \f$ and \f$ b \f$ represents: \f$ Ax
  * = b\f$ In case of inequality constraint \f$ A \f$ and \f$ b \f$ represents: \f$ Ax \le b \f$
  * @note Please inherit this class if you want to build your own optimal control problem.
  */
-class Task
+class LinearTask
 {
 protected:
     Eigen::MatrixXd m_A; /**< Task Matrix */
@@ -130,4 +130,4 @@ public:
 } // namespace IK
 } // namespace BipedalLocomotion
 
-#endif // BIPEDAL_LOCOMOTION_IK_TASK_H
+#endif // BIPEDAL_LOCOMOTION_IK_LINEAR_TASK_H
