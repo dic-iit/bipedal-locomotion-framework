@@ -48,6 +48,7 @@ bool CoMTask::setVariableHandler(const System::VariablesHandler& variablesHandle
     m_A.resize(m_linearVelocitySize, variablesHandler.getNumberOfVariables());
     m_A.setZero();
     m_b.resize(m_linearVelocitySize);
+    m_b.setZero();
 
     return true;
 }
@@ -127,8 +128,7 @@ bool CoMTask::update()
 
     m_b = m_R3Controller.getControl().coeffs();
 
-    // Workaround because matrix view is not compatible with Eigen::Ref
-    // https://github.com/robotology/idyntree/issues/797
+    // get the CoM jacobian
     if (!m_kinDyn->getCenterOfMassJacobian(this->subA(m_robotVelocityVariable)))
     {
         log()->error("[CoMTask::update] Unable to get the jacobian.");

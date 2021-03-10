@@ -48,11 +48,11 @@ class CoMTask : public Task
     LieGroupControllers::ProportionalControllerR3d m_R3Controller; /**< P Controller in R3 */
 
     System::VariablesHandler::VariableDescription m_robotVelocityVariable; /**< Variable
-                                                                                  describing the
-                                                                                  robot velocity
-                                                                                  (base + joint) */
+                                                                              describing the robot
+                                                                              velocity (base +
+                                                                              joint) */
 
-    static constexpr std::size_t m_linearVelocitySize{3}; /**< Size of the spatial velocity vector. */
+    static constexpr std::size_t m_linearVelocitySize{3}; /**< Size of the linear velocity vector. */
     static constexpr std::size_t m_spatialVelocitySize{6}; /**< Size of the spatial velocity vector. */
 
     bool m_isInitialized{false}; /**< True if the task has been initialized. */
