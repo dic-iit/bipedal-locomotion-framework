@@ -1,12 +1,12 @@
 /**
- * @file InverseKinematics.h
+ * @file IntegrationBasedIK.h
  * @authors Giulio Romualdi
- * @copyright 2020 Istituto Italiano di Tecnologia (IIT). This software may be modified and
+ * @copyright 2021 Istituto Italiano di Tecnologia (IIT). This software may be modified and
  * distributed under the terms of the GNU Lesser General Public License v2.1 or any later version.
  */
 
-#ifndef BIPEDAL_LOCOMOTION_IK_INVERSE_KINEMATICS_H
-#define BIPEDAL_LOCOMOTION_IK_INVERSE_KINEMATICS_H
+#ifndef BIPEDAL_LOCOMOTION_IK_INTEGRATION_BASE_IK_H
+#define BIPEDAL_LOCOMOTION_IK_INTEGRATION_BASE_IK_H
 
 #include <memory>
 #include <string>
@@ -28,17 +28,17 @@ namespace IK
 /**
  * State of the InverseKinematics
  */
-struct IKState
+struct IntegrationBasedIKState
 {
     Eigen::VectorXd jointVelocity; /**< Joints velocity in rad per seconds */
     manif::SE3d::Tangent baseVelocity; /**< Mixed spatial velocity of the base */
 };
 
 /**
- * InverseKinematics implements the interface for the inverse kinematics. Please inherits this class
- * if you want to implement your custom IK.
+ * IntegrationBaseInverseKinematics implements the interface for the integration base inverse kinematics. Please inherits this class
+ * if you want to implement your custom Integration base Inverse Kinematics.
  */
-class InverseKinematics : public BipedalLocomotion::System::Advanceable<IKState>
+class IntegrationBasedIK : public BipedalLocomotion::System::Advanceable<IntegrationBasedIKState>
 {
 
 public:
@@ -86,9 +86,9 @@ public:
     /**
      * Destructor.
      */
-    virtual ~InverseKinematics() = default;
+    virtual ~IntegrationBasedIK() = default;
 };
 } // namespace IK
 } // namespace BipedalLocomotion
 
-#endif // BIPEDAL_LOCOMOTION_IK_INVERSE_KINEMATICS_H
+#endif // BIPEDAL_LOCOMOTION_IK_INTEGRATION_BASE_INVERSE_KINEMATICS_H
