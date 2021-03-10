@@ -160,8 +160,6 @@ bool SE3Task::update()
     m_b.head<3>() = m_R3Controller.getControl().coeffs();
     m_b.tail<3>() = m_SO3Controller.getControl().coeffs();
 
-    // Workaround because matrix view is not compatible with Eigen::Ref
-    // https://github.com/robotology/idyntree/issues/797
     if (!m_kinDyn->getFrameFreeFloatingJacobian(m_frameIndex,
                                                 this->subA(m_robotVelocityVariable)))
     {
