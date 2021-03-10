@@ -12,7 +12,7 @@
 
 #include <manif/manif.h>
 
-#include <BipedalLocomotion/IK/Task.h>
+#include <BipedalLocomotion/IK/LinearTask.h>
 
 #include <LieGroupControllers/ProportionalController.h>
 
@@ -43,7 +43,7 @@ namespace IK
  * representation is used to define the 6d-velocity. You can find further details in Section 2.3.4
  * of https://traversaro.github.io/phd-thesis/traversaro-phd-thesis.pdf.
  */
-class CoMTask : public Task
+class CoMTask : public LinearTask
 {
     LieGroupControllers::ProportionalControllerR3d m_R3Controller; /**< P Controller in R3 */
 
