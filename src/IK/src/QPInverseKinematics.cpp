@@ -145,7 +145,7 @@ bool QPInverseKinematics::addTask(std::shared_ptr<Task> task,
 
     if (priority != 0 && priority != 1)
     {
-        log()->error("{} At the time being we support only priority equal to 0 or 1.", logPrefix);
+        log()->error("{} For the time being we support only priority equal to 0 or 1.", logPrefix);
         return false;
     }
 
@@ -155,7 +155,19 @@ bool QPInverseKinematics::addTask(std::shared_ptr<Task> task,
         return false;
     }
 
-    if (weight)
+    if (priority == 1 && task->type() == Task::Type::inequality)
+    {
+        log()->error("{} This implementation of the inverse kinematics cannot handle inequality "
+                     "tasks with priority equal to 1.",
+                     logPrefix);
+        return false;
+    }
+
+    // Store the task inside the InverseKinematics
+    m_pimpl->tasks[taskName].task = task;
+    m_pimpl->tasks[taskName].priority = priority;
+
+    if (priority == 1)
     {
         if (weight.value().size() != task->size())
         {
@@ -164,21 +176,21 @@ bool QPInverseKinematics::addTask(std::shared_ptr<Task> task,
                          logPrefix,
                          m_pimpl->tasks[taskName].task->size(),
                          weight.value().size());
+
+            // erase the task since it is not valid
+            m_pimpl->tasks.erase(taskName);
+
             return false;
         }
+
+        // add the weight
         m_pimpl->tasks[taskName].weight = weight.value();
-    }
 
-    // take the right task
-    m_pimpl->tasks[taskName].task = task;
-    m_pimpl->tasks[taskName].priority = priority;
-
-    if (priority == 0)
-    {
-        m_pimpl->constraints.push_back(m_pimpl->tasks[taskName]);
+        // add the task to the list of the element that are used to build the cost function
+        m_pimpl->costs.push_back(m_pimpl->tasks[taskName]);
     } else
     {
-        m_pimpl->costs.push_back(m_pimpl->tasks[taskName]);
+        m_pimpl->constraints.push_back(m_pimpl->tasks[taskName]);
     }
 
     return true;
@@ -226,8 +238,7 @@ bool QPInverseKinematics::finalize(const System::VariablesHandler& handler)
     m_pimpl->upperBound.resize(numberOfConstraints);
     m_pimpl->lowerBound.resize(numberOfConstraints);
 
-    if (!handler.getVariable(m_pimpl->robotVelocityVariable.name,
-                             m_pimpl->robotVelocityVariable))
+    if (!handler.getVariable(m_pimpl->robotVelocityVariable.name, m_pimpl->robotVelocityVariable))
     {
         log()->error("{} Error while retrieving the robot velocity variable.", logPrefix);
         return false;

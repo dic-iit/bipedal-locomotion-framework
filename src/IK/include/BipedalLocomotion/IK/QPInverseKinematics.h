@@ -65,6 +65,8 @@ public:
      * @param weight weight associated to the task.
      * @note currently we support only task with priority 0 or 1. If the priority is set to 0 the
      * task will be considered as a constraint. In this case the weight is not required.
+     * @warning The QPInverseKinamatics cannot handle  handle inequality tasks (please check
+     * Task::Type) with priority equal to 1.
      * @return true if the task has been added to the inverse kinematics.
      */
     bool addTask(std::shared_ptr<Task> task,
@@ -82,8 +84,8 @@ public:
 
 
     /**
-     * Initialize the planner.
-     * @param paramHandler pointer to the parameters handler.
+     * Initialize the inverse kinematics algorithm.
+     * @param handler pointer to the IParametersHandler interface.g
      * @note the following parameters are required by the class
      * |         Parameter Name         |   Type   |                                           Description                                          | Mandatory |
      * |:------------------------------:|:--------:|:----------------------------------------------------------------------------------------------:|:---------:|
