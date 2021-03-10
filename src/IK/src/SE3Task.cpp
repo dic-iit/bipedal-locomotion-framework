@@ -189,3 +189,8 @@ std::size_t SE3Task::size() const
 {
     return m_spatialVelocitySize;
 }
+
+SE3Task::Type SE3Task::type() const
+{
+    return Type::equality;
+}

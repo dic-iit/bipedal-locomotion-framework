@@ -101,6 +101,12 @@ public:
      * @return the size of the task.
      */
     std::size_t size() const override;
+
+    /**
+     * The SE3Task is an equality task.
+     * @return the size of the task.
+     */
+    Type type() const override;
 };
 
 } // namespace IK
