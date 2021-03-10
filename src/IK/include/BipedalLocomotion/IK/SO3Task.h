@@ -59,7 +59,7 @@ class SO3Task : public Task
 public:
 
     /**
-     * Initialize the planner.
+     * Initialize the task.
      * @param paramHandler pointer to the parameters handler.
      * @note the following parameters are required by the class
      * |           Parameter Name           |   Type   |                                       Description                                      | Mandatory |
@@ -67,13 +67,21 @@ public:
      * |    `robot_velocity_variable_name`  | `string` |   Name of the variable contained in `VariablesHandler` describing the robot velocity   |    Yes    |
      * |            `frame_name`            | `string` |                       Name of the frame controlled by the SO3Task                      |    Yes    |
      * |            `kp_angular`            | `double` |                           Gain of the orientation controller                           |    Yes    |
+     * Where the generalized robot velocity is a vector containing the base spatial-velocity
+     * (expressed in mixed representation) and the joints velocity.
      * @return True in case of success, false otherwise.
      */
     bool initialize(std::weak_ptr<ParametersHandler::IParametersHandler> paramHandler) override;
 
     /**
-     * Set the variable required by the task
+     * Set the set of variables required by the task. The variables are stored in the
+     * System::VariablesHandler.
      * @param variablesHandler reference to a variables handler.
+     * @note The handler must contain a variable named as the parameter
+     * `robot_velocity_variable_name` stored in the parameter handler. The variable represents the
+     * generalized velocity of the robot. Where the generalized robot velocity is a vector
+     * containing the base spatial-velocity (expressed in mixed representation) and the joints
+     * velocity.
      * @return True in case of success, false otherwise.
      */
     bool setVariableHandler(const System::VariablesHandler& variablesHandler) override;
