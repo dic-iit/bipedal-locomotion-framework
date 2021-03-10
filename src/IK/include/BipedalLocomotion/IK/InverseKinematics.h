@@ -17,7 +17,7 @@
 
 #include <BipedalLocomotion/ParametersHandler/IParametersHandler.h>
 #include <BipedalLocomotion/System/Advanceable.h>
-#include <BipedalLocomotion/IK/Task.h>
+#include <BipedalLocomotion/IK/LinearTask.h>
 
 namespace BipedalLocomotion
 {
@@ -50,13 +50,13 @@ public:
     virtual bool initialize(std::weak_ptr<ParametersHandler::IParametersHandler> handler);
 
     /**
-     * Add a task in the inverse kinematics
-     * @param task pointer to a given task
+     * Add a linear task in the inverse kinematics
+     * @param task pointer to a given linear task
      * @param priority is the priority of the task. The lower the number the higher the priority.
      * @param weight weight associated to the task.
      * @return true if the task has been added to the inverse kinematics.
      */
-    virtual bool addTask(std::shared_ptr<Task> task,
+    virtual bool addTask(std::shared_ptr<LinearTask> task,
                          const std::string& taskName,
                          std::size_t priority,
                          std::optional<Eigen::Ref<const Eigen::VectorXd>> weight = {}) = 0;
@@ -81,7 +81,7 @@ public:
      * @return a weak ptr associated to an existing task in the IK. If the task does not exist a
      * nullptr is returned.
      */
-    virtual std::weak_ptr<Task> getTask(const std::string& name) const = 0;
+    virtual std::weak_ptr<LinearTask> getTask(const std::string& name) const = 0;
 
     /**
      * Destructor.
