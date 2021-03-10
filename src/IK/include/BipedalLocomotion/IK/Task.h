@@ -24,7 +24,7 @@ namespace IK
 {
 
 /**
- * Task describes a IK task element. The element is described by a matrix
+ * Task describes a IK task element. The task is described by a matrix
  * \f$A\f$ and a vector \f$b\f$. This class describes both a linear equality constraint and a linear
  * inequality constraint. In case of equality constraint \f$ A \f$ and \f$ b \f$ represents: \f$ Ax
  * = b\f$ In case of inequality constraint \f$ A \f$ and \f$ b \f$ represents: \f$ Ax \le b \f$
@@ -33,11 +33,11 @@ namespace IK
 class Task
 {
 protected:
-    Eigen::MatrixXd m_A; /**< Element Matrix */
-    Eigen::VectorXd m_b; /**< Element Vector */
+    Eigen::MatrixXd m_A; /**< Task Matrix */
+    Eigen::VectorXd m_b; /**< Task Vector */
 
-    std::string m_description{"Generic IK Task Element"}; /**<String describing the content of the
-                                                             element*/
+    std::string m_description{"Generic IK Task Element"}; /**< String describing the content of the
+                                                             task */
 
     std::shared_ptr<iDynTree::KinDynComputations> m_kinDyn; /**< Pointer to a KinDynComputations
                                                                object */
@@ -72,16 +72,17 @@ public:
     bool setKinDyn(std::shared_ptr<iDynTree::KinDynComputations> kinDyn);
 
     /**
-     * Set the variable required by the task
+     * Set the set of variables required by the task. The variables are stored in the
+     * System::VariablesHandler
      * @param variablesHandler reference to a variables handler.
      * @return True in case of success, false otherwise.
      */
     virtual bool setVariableHandler(const System::VariablesHandler& variablesHandler);
 
     /**
-     * Initialize the optimal control element.
+     * Initialize the task
      * @param paramHandler a pointer to the parameter handler containing all the information
-     * required by the specific element. Please refer to the documentation of the implemented
+     * required by the specific task. Please refer to the documentation of the implemented
      * version of the model for further details.
      * the optimization problem. Please use the same variables handler to initialize all the
      * Tasks.
@@ -90,7 +91,7 @@ public:
     virtual bool initialize(std::weak_ptr<ParametersHandler::IParametersHandler> paramHandler);
 
     /**
-     * Update the content of the element.
+     * Update the content of the task.
      * @return True in case of success, false otherwise.
      */
     virtual bool update();
@@ -108,8 +109,8 @@ public:
     Eigen::Ref<const Eigen::VectorXd> getB() const;
 
     /**
-     * Get the description of the element.
-     * @return a string containing the description of the element.
+     * Get the description of the task.
+     * @return a string containing the description of the task.
      */
     const std::string& getDescription() const;
 
