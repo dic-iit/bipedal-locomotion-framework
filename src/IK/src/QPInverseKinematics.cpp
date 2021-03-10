@@ -21,6 +21,8 @@ struct QPInverseKinematics::Impl
         std::shared_ptr<Task> task;
         std::size_t priority;
         Eigen::VectorXd weight;
+        Eigen::MatrixXd tmp; /**< This is a temporary matrix usefull to reduce dynamics allocation
+                                in advance method */
     };
 
     IKState solution;
@@ -32,7 +34,7 @@ struct QPInverseKinematics::Impl
     std::unordered_map<std::string, TaskWithPriority> tasks;
 
     std::vector<std::reference_wrapper<const TaskWithPriority>> constraints;
-    std::vector<std::reference_wrapper<const TaskWithPriority>> costs;
+    std::vector<std::reference_wrapper<TaskWithPriority>> costs;
 
     Eigen::MatrixXd hessian;
     Eigen::VectorXd gradient;
@@ -207,6 +209,12 @@ bool QPInverseKinematics::finalize(const System::VariablesHandler& handler)
         }
     }
 
+    // resize the temporary matrix usefull to reduce dynamics allocation when advance() is called
+    for (auto& cost : m_pimpl->costs)
+    {
+        cost.get().tmp.resize(handler.getNumberOfVariables(), cost.get().weight.size());
+    }
+
     m_pimpl->solver.data()->setNumberOfVariables(handler.getNumberOfVariables());
     m_pimpl->solver.data()->setNumberOfConstraints(numberOfConstraints);
 
@@ -262,13 +270,15 @@ bool QPInverseKinematics::advance()
     // Compute the gradient and the hessian
     m_pimpl->hessian.setZero();
     m_pimpl->gradient.setZero();
-    for (const auto& cost : m_pimpl->costs)
+    for (auto& cost : m_pimpl->costs)
     {
         Eigen::Ref<const Eigen::MatrixXd> A = cost.get().task->getA();
         Eigen::Ref<const Eigen::VectorXd> b = cost.get().task->getB();
 
-        m_pimpl->hessian += A.transpose() * cost.get().weight.asDiagonal() * A;
-        m_pimpl->gradient -= A.transpose() * cost.get().weight.asDiagonal() * b;
+        // Here we avoid to have dynamic allocation
+        cost.get().tmp.noalias() = A.transpose() * cost.get().weight.asDiagonal();
+        m_pimpl->hessian.noalias() += cost.get().tmp * A;
+        m_pimpl->gradient.noalias() -= cost.get().tmp * b;
     }
 
     // compute the constraints
