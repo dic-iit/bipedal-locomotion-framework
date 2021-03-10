@@ -119,15 +119,15 @@ bool JointsTrackingTask::update()
     return true;
 }
 
-bool JointsTrackingTask::setSetpoint(Eigen::Ref<const Eigen::VectorXd> jointPosition)
+bool JointsTrackingTask::setSetPoint(Eigen::Ref<const Eigen::VectorXd> jointPosition)
 {
-    return this->setSetpoint(jointPosition, m_zero);
+    return this->setSetPoint(jointPosition, m_zero);
 }
 
-bool JointsTrackingTask::setSetpoint(Eigen::Ref<const Eigen::VectorXd> jointPosition,
+bool JointsTrackingTask::setSetPoint(Eigen::Ref<const Eigen::VectorXd> jointPosition,
                                      Eigen::Ref<const Eigen::VectorXd> jointVelocity)
 {
-    constexpr auto errorPrefix = "[JointsTrackingTask::setSetpoint]";
+    constexpr auto errorPrefix = "[JointsTrackingTask::setSetPoint]";
 
     if (jointPosition.size() != m_kinDyn->getNrOfDegreesOfFreedom()
         || jointVelocity.size() != m_kinDyn->getNrOfDegreesOfFreedom())

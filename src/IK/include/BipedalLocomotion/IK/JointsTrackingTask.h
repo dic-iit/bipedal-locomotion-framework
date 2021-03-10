@@ -73,7 +73,7 @@ public:
      * @note The desired velocity is implicitly set to zero.
      * @return True in case of success, false otherwise.
      */
-    bool setSetpoint(Eigen::Ref<const Eigen::VectorXd> jointPosition);
+    bool setSetPoint(Eigen::Ref<const Eigen::VectorXd> jointPosition);
 
     /**
      * Set the desired setpoint.
@@ -81,7 +81,7 @@ public:
      * @param jointVelocity vector containing the desired joint velocity in radians per second.
      * @return True in case of success, false otherwise.
      */
-    bool setSetpoint(Eigen::Ref<const Eigen::VectorXd> jointPosition,
+    bool setSetPoint(Eigen::Ref<const Eigen::VectorXd> jointPosition,
                      Eigen::Ref<const Eigen::VectorXd> jointVelocity);
 
     /**
