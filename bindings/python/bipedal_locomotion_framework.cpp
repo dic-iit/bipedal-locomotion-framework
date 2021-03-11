@@ -61,6 +61,9 @@ PYBIND11_MODULE(bindings, m)
     bindings::CreateKinDynComputationsDescriptor(m);
     bindings::CreateFloatingBaseEstimator(m);
     bindings::CreateLeggedOdometry(m);
+
+    // VariablesHandler.cpp
+    bindings::CreateVariablesHandler(m);
 }
 
 std::string bindings::ToString(const manif::SE3d& se3)

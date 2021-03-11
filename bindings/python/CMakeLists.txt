@@ -19,6 +19,7 @@ pybind11_add_module(pybind11_blf MODULE
     ContactDetectors.cpp
     FloatingBaseEstimators.cpp
     LeggedOdometry.cpp
+    VariablesHandler.cpp
     )
 
 target_link_libraries(pybind11_blf PUBLIC

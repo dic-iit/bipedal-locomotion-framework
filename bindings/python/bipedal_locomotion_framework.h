@@ -72,4 +72,7 @@ void CreateKinDynComputationsDescriptor(pybind11::module& module);
 void CreateFloatingBaseEstimator(pybind11::module& module);
 void CreateLeggedOdometry(pybind11::module& module);
 
+// VariablesHandler.cpp
+void CreateVariablesHandler(pybind11::module& module);
+
 } // namespace BipedalLocomotion::bindings
